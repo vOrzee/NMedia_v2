@@ -49,5 +49,4 @@ captures/
 
 ### Gradle ###
 !gradle/wrapper/gradle-wrapper.jar
-app/google-services.json
 app/fcm.json
