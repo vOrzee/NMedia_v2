@@ -67,7 +67,7 @@ class FCMService : FirebaseMessagingService() {
 
             when (action) {
                 Action.LIKE -> handleLike(gson.fromJson(message.data[content], Like::class.java))
-                Action.SHARE -> "Share_sss"
+                Action.SHARE -> "Share"
                 Action.COMMENT -> "Comment"
                 Action.UNKNOWN -> Log.w("fcm_message", "Unknown action received: $actionString")
             }
