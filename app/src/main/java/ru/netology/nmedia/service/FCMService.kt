@@ -43,7 +43,7 @@ class FCMService : FirebaseMessagingService() {
     @SuppressLint("ServiceCast")
     override fun onNewToken(token: String) {
         super.onNewToken(token)
-        Log.i("fcm_token",token)
+        Log.i("fcm_token", token)
         Log.d("FCM", "Token: $token")
         println(token)
 
@@ -55,7 +55,7 @@ class FCMService : FirebaseMessagingService() {
 
     override fun onMessageReceived(message: RemoteMessage) {
 
-        Log.i("fcm_message",message.data.toString())
+        Log.i("fcm_message", message.data.toString())
         println(Gson().toJson(message))
 
         message.data[action]?.let { actionString ->
@@ -67,8 +67,8 @@ class FCMService : FirebaseMessagingService() {
 
             when (action) {
                 Action.LIKE -> handleLike(gson.fromJson(message.data[content], Like::class.java))
-                Action.SHARE -> TODO()
-                Action.COMMENT -> TODO()
+                //Action.SHARE -> TODO()
+                //Action.COMMENT -> TODO()
                 Action.UNKNOWN -> Log.w("fcm_message", "Unknown action received: $actionString")
             }
         }
@@ -104,7 +104,8 @@ class FCMService : FirebaseMessagingService() {
 }
 
 enum class Action {
-    LIKE, SHARE, COMMENT, UNKNOWN
+    //LIKE, SHARE, COMMENT, UNKNOWN
+    LIKE, UNKNOWN
 }
 
 data class Like(
