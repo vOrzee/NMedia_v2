@@ -1,9 +1,12 @@
 package ru.netology.nmedia.service
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
@@ -37,9 +40,16 @@ class FCMService : FirebaseMessagingService() {
         }
     }
 
+    @SuppressLint("ServiceCast")
     override fun onNewToken(token: String) {
+        super.onNewToken(token)
         Log.i("fcm_token",token)
+        Log.d("FCM", "Token: $token")
         println(token)
+
+//        val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+//        val clip = ClipData.newPlainText("FCM Token", token)
+//        clipboard.setPrimaryClip(clip)
     }
 
 
