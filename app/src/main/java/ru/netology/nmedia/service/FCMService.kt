@@ -98,7 +98,7 @@ class FCMService : FirebaseMessagingService() {
             ) == PackageManager.PERMISSION_GRANTED
         ) {
             NotificationManagerCompat.from(this)
-                .notify(Random.nextInt(100_000), notification)
+                .notify(Random.nextInt(10_000_000), notification)
         }
     }
 }
